@@ -126,3 +126,20 @@ SIP has 5 function (features) :
 ** *before the invite3 the proxy1 send a request at a DNS server to learn the IP address*
 
 <br><br>
+
+ ## SIP SERVER ARCHITECTURES :
+
+There are 3 types of server architectures: 
+1. **Proxy** : it's very similar to HTTP proxy, it's very fast and scalable. It's often use in telephony server provider.
+2. **Back-to-Back User Agent** (B2BUA): is more overhead compare to a SIP proxy, but it's more flexable to implement. Most PBXs use this architecture.
+3. **Redirect** : it's very light but without much control. Redirect servers are many time used for local number portability.
+
+<br>
+
+- **SIP PROXY ARCHITECTURE** : *One-Leg Call* <br> You have only one Call-ID, the SIP proxy don't change much the request before sending ahead, except the address of the request.
+
+- **SIP REDIRECT ARCHITECTURE** : *Independent Leg Calls* <br> It's more simplar than Proxy, phone1 generate an Invite and the server create a *302 moved temporarily* whith the address at the end of the contact, then phone1 send only the *302* to the phone2. Not all phones support the 'moved temporarily'.ù
+
+- **SIP B2BUA ARCHITECTURE** : *Two Leg Calls* <br> You have two leg = Two Call-ID. The connection remains between the phone and the B2BUA server, not direct between the 2 phones. There's 2 completely different calls connected by the B2BUA server. You can connect 2 phones directly configuring the server in the right mode.
+
+<br><br>
