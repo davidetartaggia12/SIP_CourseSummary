@@ -143,3 +143,26 @@ There are 3 types of server architectures:
 - **SIP B2BUA ARCHITECTURE** : *Two Leg Calls* <br> You have two leg = Two Call-ID. The connection remains between the phone and the B2BUA server, not direct between the 2 phones. There's 2 completely different calls connected by the B2BUA server. You can connect 2 phones directly configuring the server in the right mode.
 
 <br><br>
+
+ ## SIP ADDRESSING, HEADERS AND BODY : 
+*How to identify components of a SIP message*
+
+<br>
+
+- **Addresses and Aliases** : <br> SIP Addresses are very similar to mail address. They are referred by URI (uniform resources identify) and they determine where the request is going to be send. Aliases should be add at the addresses before sending.
+
+- **Mandatory Headers** : 
+> - To
+> - From
+> - Cseq
+> - Call-ID
+> - Max-Forwards
+> - VIA
+
+>>> All these header fields are mandatory in all SIP requests.
+
+<br>
+
+- Some SIP messages don't have a body, like register.
+
+<br><br>
