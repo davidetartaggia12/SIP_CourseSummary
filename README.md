@@ -223,3 +223,25 @@ There are two types of SIP Proxy :
 
 <br> <br>
 
+## MEDIA : 
+*how the media is encode*
+
+- **PCM** - *Pulse Code Modulation* : is a tecnique to take an Analog signal and trasfomr it to a Digital signal.
+
+- To transport a conversation we have to generate a lot of packets, because we can't send packet bigger than 1500 bytes. To packetize this digital voice we have to use the *Real-Time Transport Protocol (RTP)*.
+
+- **Frame** : 
+> 1. Ethernet Destination Address
+> 2. Ethernet Source Address
+> 3. Ethernet Type
+> 4. IP Header
+> 5. UDP Header
+> 6. RTTP Header
+> 7. Voice Payload
+> 8. Ethernet Checksum
+
+- To reduce bandwith we can :
+> - increase the voice payload in the frames
+> - compress RTP
+
+<br> <br>
