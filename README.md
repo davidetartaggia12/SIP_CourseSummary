@@ -208,3 +208,18 @@ There are two types of SIP Proxy :
 > - FR_INV_TIMER - *After the provisonal reply, how long to wait for the call to be completed*
  
 <br> <br>
+
+## SIP Dialogs :
+- Dialogs persist for the duration of a call or subscription : between INVITE <-----> BYE and between SUBSCRIBE <-----> NOTIFY.
+
+- Dialogs are identified by Call-ID, From-Tag and To-Tag, so the requests on the same Dialog have same Call-ID, From-Tag and To-Tag.
+
+- Dialogs are a collction of transactions: you can create a dialog with INVITE or SUBSCRIBE, modify a dialog with RE-INVITE and finish a dialog using BYE or NOTIFY.
+
+- **Initial Requests** : Can be easily identify by the lack of the 2 tags *(es. INVITE)*
+- **Sequential (in-dialog) Requests** : have the same Call-ID, From-Tag and To-Tag, can be easily identify by the presence of the To-Tag *(BYE, ACK, RE-INVITES)*
+
+- The ACK at the end of a transmission contains all the intermediary routes informations, UAC and UAS store this informations.
+
+<br> <br>
+
