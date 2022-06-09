@@ -102,3 +102,27 @@ SIP has 5 function (features) :
 > N.B: UAC and the UAS clock have to be synchronized
 
 <br><br>
+
+ ## SESSION SETUP AND MANAGEMENT :
+- the *SIP ladder* and the *SIP trapezoid* show the same thing, but the first shows the simuation and the other shows the topology.
+
+- **Simulation of a call** : <br> *phone1 <--> proxy1 <--> proxy2 <--> phone2* 
+
+>1. phone1 --- invite ---> proxy1
+>2. proxy1 --- trying ---> phone1 **
+>3. proxy1 --- invite ---> proxy2
+>4. proxy2 --- trying ---> proxy1
+>5. proxy2 --- invite ---> phone2
+>6. phone2 --- ringing ---> proxy2
+>7. proxy2 --- ringing ---> proxy1
+>8. proxy1 --- ringing ---> phone1
+>9. phone2 --- OK ---> proxy2
+>10. proxy2 --- OK ---> proxy1
+>11. proxy1 --- OK ---> phone1
+>12. phone1 --- ACK ---> phone2
+>13. phone2 --- BYE ---> phone1
+>14. phone1 --- OK ---> phone2
+
+** *before the invite3 the proxy1 send a request at a DNS server to learn the IP address*
+
+<br><br>
