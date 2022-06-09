@@ -74,3 +74,31 @@ SIP has 5 function (features) :
 5. discovery of user capabilities : such as codex, streams and many other usage in the SIP negotiation
 
 <br><br>
+
+ ## REGISTRATION PROCESS :
+
+- **registration request** : when a phone wants to inform its location, it send a registration to a Location Database to a SIP register (in the packet there's also the source and destination socket) 
+> N.B: if you want to inform the location you **MUST** register
+
+<br>
+
+- **registration authentication sequence** :
+1. UAC send the registration request
+2. the SIP Proxy refuse it and send an error packet (401 unauthorized) that contains information (which are useful for authorize header)
+3. UAC resend the registration request with the authorize header (with all the information to authenticate it)
+4. the SIP Proxy send back the 200/OK packet
+
+<br>
+
+- **record expiration** : UAC suggests a expiration time, and the UAS decides to agree expiration time
+
+<br>
+
+- **typical SIP proxy configurations** : usually the proxy has a Minimun expires, a Maximum expires and a Default expires. If the cloud don't send a expires the default value becomes the expiration time. 
+
+<br>
+
+- **registration details** : the address of record (AOR) can have more than one contact. The registration time mustn't be too small, because too many close request can cause problems. So if you miss some registration maybe you need to increase the registration time.
+> N.B: UAC and the UAS clock have to be synchronized
+
+<br><br>
