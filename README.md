@@ -1,6 +1,8 @@
 <SIP>
 
-# SIP components
+# SIP
+
+## SIP COMPONENTS
 - **UAC** : User agent Client
 - **UAS** : User agent Server
 - **B2BUA** : is a UAS directly connected with a UAC that may replace a SIP proxy or connect to one
@@ -167,7 +169,7 @@ There are 3 types of server architectures:
 
 <br><br>
 
-## SIP Proxy Types :
+## SIP PROXY TYPES :
 There are two types of SIP Proxy :
 - **Stateful** : the proxy keeps a transaction history, you can manage the replies by the branch number. With SIP Proxy is possible to absorb retransmission. It's possible route using transaction information.
 - **Stateless** : the proxy doesn't keeps the transaction in memory, it's slightly faster than Stateful and it has less memory intensive.
@@ -194,7 +196,7 @@ There are two types of SIP Proxy :
 
 <br> <br>
 
-  ## SIP Timers :
+  ## SIP TIMERS :
 - The most important SIP timers are:
 > - T1 (500ms) - *Round Trip Time (RTT)* : decrease the value isn't recommended, because the proxy need some time to process a request.
 > - T2 (4s) - *Maximum network retransmissions (Non-INVITE/Replies)*
@@ -209,7 +211,7 @@ There are two types of SIP Proxy :
  
 <br> <br>
 
-## SIP Dialogs :
+## SIP DIALOGS :
 - Dialogs persist for the duration of a call or subscription : between INVITE <-----> BYE and between SUBSCRIBE <-----> NOTIFY.
 
 - Dialogs are identified by Call-ID, From-Tag and To-Tag, so the requests on the same Dialog have same Call-ID, From-Tag and To-Tag.
