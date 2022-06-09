@@ -193,3 +193,18 @@ There are two types of SIP Proxy :
 - A Stateful Proxy stores transaction data, with all information attached to the transaction. The match is based on Branch ID (from VIA header). <br> This lets you to do parallel and serial forking. Suppose that you have 3 phones connected at the same account: with parallel forking the call will be sent at all the device at the same time and every transaction has an independent branch id; with serial forking the call will be forward at one device, then if the proxy receives a negative reply it create a new branch id and send the call to another device.
 
 <br> <br>
+
+  ## SIP Timers :
+- The most important SIP timers are:
+> - T1 (500ms) - *Round Trip Time (RTT)* : decrease the value isn't recommended, because the proxy need some time to process a request.
+> - T2 (4s) - *Maximum network retransmissions (Non-INVITE/Replies)*
+> - TimerA - *INVITE retransmissions time (initially T1)* 
+> - TimerB - *INVITE transaction timeout (64\*T1 = 32s)* 
+> - TimerH - *Wait for ACK retransmission (64\*T1 = 32s)*
+
+- There are some Proxy timers:
+> - TimerC - *Proxy's transaction timeout*
+> - FR_TIMER - *Maximum wait time before a provisional reply (100 Trying)*
+> - FR_INV_TIMER - *After the provisonal reply, how long to wait for the call to be completed*
+ 
+<br> <br>
