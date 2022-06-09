@@ -8,15 +8,15 @@
 - **B2BUA** : is a UAS directly connected with a UAC that may replace a SIP proxy or connect to one
 
 
-- SIP response only for the signaly not for the media
-- RTP (real time protocol) : is directly connect between UAC - UAS - B2BUA
+- SIP response only for the signal, not for the media
+- RTP (real time protocol) : is directly connected between UAC - UAS - B2BUA
 
 <br>
 
  When you want to connect to :
 
-- **pbx** : private branch excahnge
-- **pstn** : public switch telephone network
+- **PBX** : private branch exchange
+- **PSTN** : public switch telephone network
 
 you need to use a gateway.
 
@@ -35,15 +35,15 @@ you need to use a gateway.
 
 <br>
 
-**Methods** : primary function that a request invoke on a server
+**Methods** : the primary function that a request invoke on a server
 
 RFC defines 6 methods : <br>
 - **invite** : session establishment
 - **bye** : terminate ad existing session (end the call)
-- **cancel** : cancel a pending request (cancel ananswered call)
+- **cancel** : cancel a pending request (cancel unanswered call)
 - **ack** : acknowledge an INVITE (confirm)
 - **options** : query the capabilities of the USA (test)
-- **register** : register the user in the location table (register phone or other device)
+- **register** : register the user in the location table (register phone or other devices)
 
 <br>
 
@@ -56,57 +56,57 @@ RFC defines 6 methods : <br>
 > 1. *200* OK : for invites
 > 2. *202* Accepted : for non-invites request
 
-- **redirect** : is used by redirect servers, most of these messages is used on specifics areas
+- **redirect** : is used by redirect servers, most of these messages are used in specifics areas
 
 - **client errors** : the code start with 4 (like 400, 401, 402)
 
 - **servers errors** : 
-> 1. when you have an *500* error this mean that you have an Internal Server Error (at the logic of your system)
-> 2. *503* Service Unavailable : congestion, you forward the request on another server
+> 1. when you have a *500* error this means that you have an Internal Server Error (at the logic of your system)
+> 2. *503* Service Unavailable : congestion, you forward the request to another server
 
-- **global errors** : you shouldn't do anything to fail over the request, because the problem don't depend on you
+- **global errors** : you shouldn't do anything to fail over the request, because the problem doesn't depend on you
 
 <br>
 
-SIP has 5 function (features) : 
+SIP has 5 functions (features) : 
 1. user location and registration
-2. user availability : the server check if the user is available and if the refistration is expired or not
-3. session setup : to stablish a session
-4. session management : you can complete manage the session
-5. discovery of user capabilities : such as codex, streams and many other usage in the SIP negotiation
+2. user availability : the server checks if the user is available and if the registration is expired or not
+3. session setup : to establish a session
+4. session management : you can completely manage the session
+5. discovery of user capabilities : such as codex, streams, and many other usages in the SIP negotiation
 
 <br><br>
 
  ## REGISTRATION PROCESS :
 
-- **registration request** : when a phone wants to inform its location, it send a registration to a Location Database to a SIP register (in the packet there's also the source and destination socket) 
+- **registration request** : when a phone wants to inform its location, it sends a registration to a Location Database to a SIP register (in the packet there's also the source and destination socket) 
 > N.B: if you want to inform the location you **MUST** register
 
 <br>
 
 - **registration authentication sequence** :
-1. UAC send the registration request
-2. the SIP Proxy refuse it and send an error packet (401 unauthorized) that contains information (which are useful for authorize header)
-3. UAC resend the registration request with the authorize header (with all the information to authenticate it)
-4. the SIP Proxy send back the 200/OK packet
+1. UAC sends the registration request
+2. the SIP Proxy refuses it and sends an error packet (401 unauthorized) that contains information (which is useful for authorize header)
+3. UAC resend the registration request with the authorized header (with all the information to authenticate it)
+4. the SIP Proxy sends back the 200/OK packet
 
 <br>
 
-- **record expiration** : UAC suggests a expiration time, and the UAS decides to agree expiration time
+- **record expiration** : UAC suggests an expiration time, and the UAS decides to agree expiration time
 
 <br>
 
-- **typical SIP proxy configurations** : usually the proxy has a Minimun expires, a Maximum expires and a Default expires. If the cloud don't send a expires the default value becomes the expiration time. 
+- **typical SIP proxy configurations** : usually the proxy has a Minimum expires, a Maximum expires and a Default expires. If the cloud doesn't send an expiration the default value becomes the expiration time. 
 
 <br>
 
-- **registration details** : the address of record (AOR) can have more than one contact. The registration time mustn't be too small, because too many close request can cause problems. So if you miss some registration maybe you need to increase the registration time.
+- **registration details** : the address of record (AOR) can have more than one contact. The registration time mustn't be too small, because too many close requests can cause problems. So if you miss some registration maybe you need to increase the registration time.
 > N.B: UAC and the UAS clock have to be synchronized
 
 <br><br>
 
  ## SESSION SETUP AND MANAGEMENT :
-- the *SIP ladder* and the *SIP trapezoid* show the same thing, but the first shows the simuation and the other shows the topology.
+- the *SIP ladder* and the *SIP trapezoid* show the same thing, but the first shows the simulation, and the other shows the topology.
 
 - **Simulation of a call** : <br> *phone1 <--> proxy1 <--> proxy2 <--> phone2* 
 
@@ -125,33 +125,33 @@ SIP has 5 function (features) :
 >13. phone2 --- BYE ---> phone1
 >14. phone1 --- OK ---> phone2
 
-** *before the invite3 the proxy1 send a request at a DNS server to learn the IP address*
+** *before the invite3 the proxy1 sends a request to a DNS server to learn the IP address*
 
 <br><br>
 
  ## SIP SERVER ARCHITECTURES :
 
 There are 3 types of server architectures: 
-1. **Proxy** : it's very similar to HTTP proxy, it's very fast and scalable. It's often use in telephony server provider.
-2. **Back-to-Back User Agent** (B2BUA): is more overhead compare to a SIP proxy, but it's more flexable to implement. Most PBXs use this architecture.
-3. **Redirect** : it's very light but without much control. Redirect servers are many time used for local number portability.
+1. **Proxy** : it's very similar to HTTP proxy, it's very fast and scalable. It's often used by telephony service providers.
+2. **Back-to-Back User Agent** (B2BUA): is more overhead compared to a SIP proxy, but it's more flexible to implement. Most PBXs use this architecture.
+3. **Redirect** : it's very light but without much control. Redirect servers are much time used for local number portability.
 
 <br>
 
-- **SIP PROXY ARCHITECTURE** : *One-Leg Call* <br> You have only one Call-ID, the SIP proxy don't change much the request before sending ahead, except the address of the request.
+- **SIP PROXY ARCHITECTURE** : *One-Leg Call* <br> You have only one Call-ID, the SIP proxy doesn't change much of the request before sending ahead, except the address of the request.
 
-- **SIP REDIRECT ARCHITECTURE** : *Independent Leg Calls* <br> It's more simplar than Proxy, phone1 generate an Invite and the server create a *302 moved temporarily* whith the address at the end of the contact, then phone1 send only the *302* to the phone2. Not all phones support the 'moved temporarily'.ù
+- **SIP REDIRECT ARCHITECTURE** : *Independent Leg Calls* <br> It's simpler than Proxy, phone1 generates an Invite and the server creates a *302 moved temporarily* with the address at the end of the contact, then phone1 sends only the *302* to the phone2. Not all phones support the 'moved temporarily'.ù
 
-- **SIP B2BUA ARCHITECTURE** : *Two Leg Calls* <br> You have two leg = Two Call-ID. The connection remains between the phone and the B2BUA server, not direct between the 2 phones. There's 2 completely different calls connected by the B2BUA server. You can connect 2 phones directly configuring the server in the right mode.
+- **SIP B2BUA ARCHITECTURE** : *Two Leg Calls* <br> You have two legs = Two Call-ID. The connection remains between the phone and the B2BUA server, not directly between the 2 phones. There are 2 completely different calls connected by the B2BUA server. You can connect 2 phones directly configuring the server in the right mode.
 
 <br><br>
 
- ## SIP ADDRESSING, HEADERS AND BODY : 
+ ## SIP ADDRESSING, HEADERS, AND BODY : 
 *How to identify components of a SIP message*
 
 <br>
 
-- **Addresses and Aliases** : <br> SIP Addresses are very similar to mail address. They are referred by URI (uniform resources identify) and they determine where the request is going to be send. Aliases should be add at the addresses before sending.
+- **Addresses and Aliases** : <br> SIP Addresses are very similar to mail addresses. They are referred by URI (uniform resources identify) and they determine where the request is going to be sent. Aliases should be added at the addresses before sending.
 
 - **Mandatory Headers** : 
 > - To
@@ -165,20 +165,20 @@ There are 3 types of server architectures:
 
 <br>
 
-- Some SIP messages don't have a body, like register.
+- Some SIP messages don't have a body, like a register.
 
 <br><br>
 
 ## SIP PROXY TYPES :
 There are two types of SIP Proxy :
-- **Stateful** : the proxy keeps a transaction history, you can manage the replies by the branch number. With SIP Proxy is possible to absorb retransmission. It's possible route using transaction information.
-- **Stateless** : the proxy doesn't keeps the transaction in memory, it's slightly faster than Stateful and it has less memory intensive.
+- **Stateful** : the proxy keeps a transaction history, you can manage the replies by the branch number. With SIP Proxy is possible to absorb retransmission. It's possible to route using transaction information.
+- **Stateless** : the proxy doesn't keep the transaction in memory, it's slightly faster than Stateful and it has less memory intensive.
 
 <br>
 
-- **Transaction** : are every packet between UAC and UAS. <br> Excpet the special case : *ACK*
-> - for negative replies it's part of an existing transaction
-> - for positive replies it's a new transaction (To-tag)
+- **Transaction** : are every packet between UAC and UAS. <br> Except for the special case : *ACK*
+> - for negative : replies it's part of an existing transaction
+> - for positive : replies it's a new transaction (To-tag)
 
 <br>
 
@@ -192,13 +192,13 @@ There are two types of SIP Proxy :
 
 <br>
 
-- A Stateful Proxy stores transaction data, with all information attached to the transaction. The match is based on Branch ID (from VIA header). <br> This lets you to do parallel and serial forking. Suppose that you have 3 phones connected at the same account: with parallel forking the call will be sent at all the device at the same time and every transaction has an independent branch id; with serial forking the call will be forward at one device, then if the proxy receives a negative reply it create a new branch id and send the call to another device.
+- A Stateful Proxy stores transaction data, with all information attached to the transaction. The match is based on Branch ID (from the VIA header). <br> This lets you do parallel and serial forking. Suppose that you have 3 phones connected to the same account: with parallel forking, the call will be sent to all the devices at the same time and every transaction has an independent branch id; with serial forking, the call will be forward at one device, then if the proxy receives a negative reply it creates a new branch id and sends the call to another device.
 
 <br> <br>
 
   ## SIP TIMERS :
 - The most important SIP timers are:
-> - T1 (500ms) - *Round Trip Time (RTT)* : decrease the value isn't recommended, because the proxy need some time to process a request.
+> - T1 (500ms) - *Round Trip Time (RTT)* : decrease the value isn't recommended because the proxy needs some time to process a request.
 > - T2 (4s) - *Maximum network retransmissions (Non-INVITE/Replies)*
 > - TimerA - *INVITE retransmissions time (initially T1)* 
 > - TimerB - *INVITE transaction timeout (64\*T1 = 32s)* 
@@ -207,30 +207,30 @@ There are two types of SIP Proxy :
 - There are some Proxy timers:
 > - TimerC - *Proxy's transaction timeout*
 > - FR_TIMER - *Maximum wait time before a provisional reply (100 Trying)*
-> - FR_INV_TIMER - *After the provisonal reply, how long to wait for the call to be completed*
+> - FR_INV_TIMER - *After the provisional reply, how long to wait for the call to be completed*
  
 <br> <br>
 
 ## SIP DIALOGS :
 - Dialogs persist for the duration of a call or subscription : between INVITE <-----> BYE and between SUBSCRIBE <-----> NOTIFY.
 
-- Dialogs are identified by Call-ID, From-Tag and To-Tag, so the requests on the same Dialog have same Call-ID, From-Tag and To-Tag.
+- Dialogs are identified by Call-ID, From-Tag and, To-Tag, so the requests on the same Dialog have the same Call-ID, From-Tag, and To-Tag.
 
-- Dialogs are a collction of transactions: you can create a dialog with INVITE or SUBSCRIBE, modify a dialog with RE-INVITE and finish a dialog using BYE or NOTIFY.
+- Dialogs are a collection of transactions: you can create a dialog with INVITE or SUBSCRIBE, modify a dialog with RE-INVITE and finish a dialog using BYE or NOTIFY.
 
-- **Initial Requests** : Can be easily identify by the lack of the 2 tags *(es. INVITE)*
-- **Sequential (in-dialog) Requests** : have the same Call-ID, From-Tag and To-Tag, can be easily identify by the presence of the To-Tag *(BYE, ACK, RE-INVITES)*
+- **Initial Requests** : Can be easily identified by the lack of the 2 tags *(es. INVITE)*
+- **Sequential (in-dialog) Requests** : have the same Call-ID, From-Tag, and To-Tag, and can be easily identified by the presence of the To-Tag *(BYE, ACK, RE-INVITES)*
 
-- The ACK at the end of a transmission contains all the intermediary routes informations, UAC and UAS store this informations.
+- The ACK at the end of transmission contains all the intermediary route information, UAC and UAS store these pieces of information.
 
 <br> <br>
 
 ## MEDIA : 
 *how the media is encode*
 
-- **PCM** - *Pulse Code Modulation* : is a tecnique to take an Analog signal and trasfomr it to a Digital signal.
+- **PCM** - *Pulse Code Modulation* : is a technique to take an Analog signal and transform it into a Digital signal.
 
-- To transport a conversation we have to generate a lot of packets, because we can't send packet bigger than 1500 bytes. To packetize this digital voice we have to use the *Real-Time Transport Protocol (RTP)*.
+- To transport a conversation we have to generate a lot of packets because we can't send packets bigger than 1500 bytes. To packetize this digital voice we have to use the *Real-Time Transport Protocol (RTP)*.
 
 - **Frame** : 
 > 1. Ethernet Destination Address
@@ -242,7 +242,7 @@ There are two types of SIP Proxy :
 > 7. Voice Payload
 > 8. Ethernet Checksum
 
-- To reduce bandwith we can :
+- To reduce bandwidth we can :
 > - increase the voice payload in the frames
 > - compress RTP
 
