@@ -166,3 +166,30 @@ There are 3 types of server architectures:
 - Some SIP messages don't have a body, like register.
 
 <br><br>
+
+## SIP Proxy Types :
+There are two types of SIP Proxy :
+- **Stateful** : the proxy keeps a transaction history, you can manage the replies by the branch number. With SIP Proxy is possible to absorb retransmission. It's possible route using transaction information.
+- **Stateless** : the proxy doesn't keeps the transaction in memory, it's slightly faster than Stateful and it has less memory intensive.
+
+<br>
+
+- **Transaction** : are every packet between UAC and UAS. <br> Excpet the special case : *ACK*
+> - for negative replies it's part of an existing transaction
+> - for positive replies it's a new transaction (To-tag)
+
+<br>
+
+> - There are 6 transaction **states** :
+>> 1. Calling : *client started a new call creating a new transaction*
+>> 2. Trying : *used for transactions not based on INVITE*
+>> 3. Proceeding : *the client/server received/sent a new provisional reply*
+>> 4. Completed : *the client/server received/sent a final reply (3xx)*
+>> 5. Confirmed : *the client/server sent/received an ACK*
+>> 6. Terminated : *after receiving the ACK*
+
+<br>
+
+- A Stateful Proxy stores transaction data, with all information attached to the transaction. The match is based on Branch ID (from VIA header). <br> This lets you to do parallel and serial forking. Suppose that you have 3 phones connected at the same account: with parallel forking the call will be sent at all the device at the same time and every transaction has an independent branch id; with serial forking the call will be forward at one device, then if the proxy receives a negative reply it create a new branch id and send the call to another device.
+
+<br> <br>
