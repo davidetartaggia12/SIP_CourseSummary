@@ -248,7 +248,7 @@ There are two types of SIP Proxy :
 
 <br> <br>
 
-## Session Description Protocol (*SDP*)
+## SESSION DESCRIPTION PROTOCOL (*SDP*)
 – It's defined on the RFC4566, it's a parameter negotiation for session protocol. SDP exchange capabilities and media contact addresses between 2 peers on the communication. 
 
 - There are 2 types of negotiation : 
@@ -267,7 +267,7 @@ There are two types of SIP Proxy :
 
 <br> <br>
 
-## Real-Time Protocol (*RTP*):
+## REAL-TIME PROTOCOL (*RTP*):
 - RTP is defined in RFC3550 and it is responsible for the media packetization. The main features of RTP the payload identification, delivering monitoring, and timestamping.
 > N.B: if you receive a packet with a sequence number out of sequence there's nothing you can do to use it. You only have to discard the packet.
 
@@ -283,7 +283,9 @@ There are two types of SIP Proxy :
 
 <br> <br>
 
-## Voice Quality in VoIP Calls :
+## VOICE QIALITY IN VoIP CALLS :
 - Quality voice is based on 3 parameters : Jitter (*<20ms*), Packet Loss (*0%*), and Latency (*<150ms*). To measure these parameters you can capture all RTP packets or you can use RTCP feedback.
 
 - If you want to improve your voice quality : first you have to control your network (*jitter, latency, and packet loss*). The second thing is to choose the right codec. The last thing is the end user device: *like the headset, and the phone*.
+
+<br><br>
