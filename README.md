@@ -289,3 +289,16 @@ There are two types of SIP Proxy :
 - If you want to improve your voice quality : first you have to control your network (*jitter, latency, and packet loss*). The second thing is to choose the right codec. The last thing is the end user device: *like the headset, and the phone*.
 
 <br><br>
+
+## SIP NAT TRAVERSAL :
+- NAT affects SIP in the VIA header, Contact header, and SDP body.
+
+- **NAT Types** - We have 4 types of NAT :
+> 1. **Cone type** - We have 3 types of cone NAT
+>> - *Full Cone : Static NAT* <br> You have it when you manually go into the router and set a port forward, so we have a static mapping between an external IP address and an internal IP address.
+>> - *Restricted Cone : Dynamic NAT* <br> In this case, the internal computer must start communication to get back packets. Only the IP address set in NAT can send back packets.
+>> - *Port Restricted Cone : Dynamic NAT* <br> Only the IP address and port configured in NAT can send back packets.  Before, the internal computer had to start communication. <br> 
+>>> N.B : *There's one mapping for all the external computers*.
+> 2. **Symmetric NAT** : it's very similar to *Restricted Cone*, it's dynamic, but we have one mapping for each destination. 
+
+<br>
