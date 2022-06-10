@@ -282,3 +282,8 @@ There are two types of SIP Proxy :
 >> N.B: the most important are SR and RR
 
 <br> <br>
+
+## Voice Quality in VoIP Calls :
+- Quality voice is based on 3 parameters : Jitter (*<20ms*), Packet Loss (*0%*), and Latency (*<150ms*). To measure these parameters you can capture all RTP packets or you can use RTCP feedback.
+
+- If you want to improve your voice quality : first you have to control your network (*jitter, latency, and packet loss*). The second thing is to choose the right codec. The last thing is the end user device: *like the headset, and the phone*.
