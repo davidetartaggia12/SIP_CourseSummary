@@ -248,7 +248,7 @@ There are two types of SIP Proxy :
 
 <br> <br>
 
-## Session Description Protocol *(SDP)*
+## Session Description Protocol (*SDP*)
 – It's defined on the RFC4566, it's a parameter negotiation for session protocol. SDP exchange capabilities and media contact addresses between 2 peers on the communication. 
 
 - There are 2 types of negotiation : 
@@ -264,3 +264,21 @@ There are two types of SIP Proxy :
 > - **Session Description** : it contains a lot of information about the system, the most important is the encryption key. *Its use depends on the application*.
 > - **Timing Description** : if we want to time the section there are some possibilities to put the time on SDP. *Its use depends on the application*.
 > - **Media Description** : the most important pieces of information are the media name and transport address (*m*) and the connection information (*c*). *The importance of bandwidth and encryption key depends on the application*.
+
+<br> <br>
+
+## Real-Time Protocol (*RTP*):
+- RTP is defined in RFC3550 and it is responsible for the media packetization. The main features of RTP the payload identification, delivering monitoring, and timestamping.
+> N.B: if you receive a packet with a sequence number out of sequence there's nothing you can do to use it. You only have to discard the packet.
+
+- **RTP Control Protocol** : RTCP is a protocol for voice feedback, so if you want to have the quality of the call you have to activate RTCP, it's not activated by default. There are some secondary functions applicate to video and audio conferences.
+
+- **RTCP packet types** : 
+> 1. Sender Report (SR) : *statistics of the activated participants*
+> 2. Received Report (RR) : *statistics for inactive participants*
+> 3. SDES : *items source descriptions such as CNAME*
+> 4. BYE : *end of participation (conference)*
+> 5. APP : *application specific functions*
+>> N.B: the most important are SR and RR
+
+<br> <br>
