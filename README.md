@@ -247,3 +247,20 @@ There are two types of SIP Proxy :
 > - compress RTP
 
 <br> <br>
+
+## Session Description Protocol *(SDP)*
+– It's defined on the RFC4566, it's a parameter negotiation for session protocol. SDP exchange capabilities and media contact addresses between 2 peers on the communication. 
+
+- There are 2 types of negotiation : 
+> - **Normal Negotiation** : it's an INVITE with SDP offer and 200/OK with SDP answer.
+> - **Late Negotiation** : it's an INVITE without SDP, receive a 200/OK with SDP offer and then an ACK with SDP answer *(TPCC = Third Part Call Control)*.
+
+- **SDP Offer** : it contains a lot of information, the most important is the M-Line (*media description*) and the connection pieces of information (*Ip addresses, Codec, Ports*). All the other information maybe will be used from the phone.
+> N.B: in the normal negotiation point A decides the codec, in the late negotiation point B will decide it.
+
+- **SDP Answer** : it contains the information used with the specifications.
+
+- **SDP Parts** : we have 3 parts of the session description protocol : 
+> - **Session Description** : it contains a lot of information about the system, the most important is the encryption key. *Its use depends on the application*.
+> - **Timing Description** : if we want to time the section there are some possibilities to put the time on SDP. *Its use depends on the application*.
+> - **Media Description** : the most important pieces of information are the media name and transport address (*m*) and the connection information (*c*). *The importance of bandwidth and encryption key depends on the application*.
