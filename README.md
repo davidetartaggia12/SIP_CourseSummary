@@ -333,3 +333,14 @@ There are two types of SIP Proxy :
 > 4. ALG and UPNP : *we just hope it doesn't break anything, use a different port to avoid*
 
 <br>
+
+## TROUBLESHOOTING SIP
+-  **Structured Troubleshooting Process** : 
+> 1. the first thing to do is to reproduce the problem and collect traces and log files
+> 2. then we should analyze the files and propose a resolution hypothesis
+
+- **Troubleshooting Stategies** : once you have a problem you can use some strategies to solve or isolate it : using the OSI model, dividing and conquering based on the OSI model, simplifying until it works, and changing components intelligently.
+
+> *N.B : if you can't isolate the problem, probably you have more than one problem*
+
+<br>
