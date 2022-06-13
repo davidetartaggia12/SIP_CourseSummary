@@ -332,7 +332,7 @@ There are two types of SIP Proxy :
 > 3. for SIP Proxies : *STUN and TURN*
 > 4. ALG and UPNP : *we just hope it doesn't break anything, use a different port to avoid*
 
-<br>
+<br><br>
 
 ## TROUBLESHOOTING SIP
 -  **Structured Troubleshooting Process** : 
@@ -343,4 +343,47 @@ There are two types of SIP Proxy :
 
 > *N.B : if you can't isolate the problem, probably you have more than one problem*
 
-<br>
+<br><br>
+
+## TOP 10 SIGNALING PROBLEMS : 
+- **Top 10 most commons SIP issues** : 
+> 1. *Unable to Register* 
+> 2. *Unable to Call*
+> 3. *Calls being disconnected in 30s*
+> 4. *One way or no audio*
+> 5. *Hanged Calls*
+> 6. *400 - Bad Request*
+> 7. *413, 513 - Request Entity Too Large, Message Too Large*
+> 8. *408, 480, and 487 - difference between canceled, no-answer, and dead gw*
+> 9. *483 - Too Many Hops*
+> 10. *488 - Not Acceptable Here*
+
+- **Unable to Register or Call** - there are 4 causes of this problem :
+> 1. *There's no connectivity with the server that provides the service. You just have to ping the server and see the results*.
+> 2. *There's the registration in the server but you don't have an answer from the server, that is down*.
+> 3. *If you send registration with the wrong credential, you receive back an error (401 or 407)*.
+> 4. *You have everything correct and there's connectivity but you receive a "403 forbidden"  : this means that the front domain or the request domain is wrong*.
+
+- **Calls being disconnected in 30s** : are associated with the lack of the ACK. If you send an INVITE and receive a 200/OK but you don't confirm it (ACK) the call will be disconnected. <br> If a phone doesn't receive a confirmation of a call after some time it disconnects the call.
+
+- **Hanged Calls** : the main causes are : BYE not sent or sent with the wrong to-tag, and malformed or misrouted BYE. The consequences are : wrong billing, wrong call counting, and users can't make a call because they are limited to a certain number of simultaneous calls. The  resolutions are to enable RTP Timeout or SIP KeepAlive.
+
+- **One way or no audio** : the principal causes are : 
+> - *Addresses in the SDP don't have connectivity* : <br>   **ping between both addresses and check if the address isn't behind NAT**.
+> - *Firewall blocking UDP ports* : <br> **open the firewall**.
+> - *Application Layer Gateway* : <br> **use a different port in the server and client** 
+
+- **400 Bad Request** : there's something wrong with the request.
+
+- **413, 513 - Request Entity Too Large, Message Too Large** : UDP is limited to 1500 bytes, if you capture traces you will probably see missing parts in the SDP. It occurs when : the message has many codecs, there are too many VIA headers, or too many Record-Route headers. You can solve it : by reducing the number of codecs or using topology hiding B2BUA between providers.
+
+- **408, 480, and 487 - difference between canceled, no-answer, and dead gw** : 
+> - **408** : *it means that we can't contact the other side*. If you send a call and the gateway doesn't exist the proxy will generate a 408. You can also receive it if no one answered the call, and the proxy timer expired before the phone timer.
+> - **480** : you receive it if *no one answered the call*, and the phone timer expired before the proxy timer.
+> - If you receive a *480 after* it you will receive also a **487** that suggests you resend the call.
+
+- **483 - Too Many Hops** : it means that the domain isn't set, or it isn't configured in the server.
+
+- **488 - Not Acceptable Here** : usually associated with the CODEC negotiation, or sometimes related to FAX.
+
+<br><br>
