@@ -302,3 +302,8 @@ There are two types of SIP Proxy :
 > 2. **Symmetric NAT** : it's very similar to *Restricted Cone*, it's dynamic, but we have one mapping for each destination. 
 
 <br>
+
+## SYMMETRIC RESPONSE ROUTING : 
+- Is an old method defined in the RFC3581, when you send an INVITE, the server answer not in the address in the VIA header, but to the sender IP address and port. The server also add this IP address in the VIA header.
+
+<br>
