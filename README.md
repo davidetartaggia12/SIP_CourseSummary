@@ -318,3 +318,9 @@ There are two types of SIP Proxy :
 >> The task is to discover if the user is behind NAT,  the external address of user and the type of NAT. <br> To accomplish this task STUN uses 3 request : the first test is send a request without flag, the second test is a binary request of the change of IP address and port flags, and the third proof is to test if NAT is restricted or not restricted. 
 
 <br>
+
+## TURN : *Traversal of UDP over Relay NAT*
+- If the network device is symmetric, there's no way to use STUN. <br> If you are using a SIP proxy you need to have a central point where to send the RTP and the signal. 
+- The server uses the external point IP address to send packets from the second device and then returns them.
+
+<br>
