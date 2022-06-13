@@ -307,3 +307,14 @@ There are two types of SIP Proxy :
 - Is an old method defined in the RFC3581, when you send an INVITE, the server answer not in the address in the VIA header, but to the sender IP address and port. The server also add this IP address in the VIA header.
 
 <br>
+
+## APPLICATION LAYER GATEWAYS :
+- It tries to solve the network address translation in the router. 
+
+<br>
+
+## STUN : *Simple Traversal of UDP over NAT*
+- STUN function : 
+>> The task is to discover if the user is behind NAT,  the external address of user and the type of NAT. <br> To accomplish this task STUN uses 3 request : the first test is send a request without flag, the second test is a binary request of the change of IP address and port flags, and the third proof is to test if NAT is restricted or not restricted. 
+
+<br>
