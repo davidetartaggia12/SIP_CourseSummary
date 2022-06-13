@@ -324,3 +324,12 @@ There are two types of SIP Proxy :
 - The server uses the external point IP address to send packets from the second device and then returns them.
 
 <br>
+
+## NAT CONCLUSION :
+- The best solutions : 
+> 1. for Servers : *manual configuration*
+> 2. for Asterisk and FreeSwitch : *Symmetric Response Routing and COMEDIA*
+> 3. for SIP Proxies : *STUN and TURN*
+> 4. ALG and UPNP : *we just hope it doesn't break anything, use a different port to avoid*
+
+<br>
