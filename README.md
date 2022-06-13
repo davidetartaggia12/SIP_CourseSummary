@@ -2,7 +2,7 @@
 
 # SIP
 
-## SIP COMPONENTS
+## SIP COMPONENTS :
 - **UAC** : User agent Client
 - **UAS** : User agent Server
 - **B2BUA** : is a UAS directly connected with a UAC that may replace a SIP proxy or connect to one
@@ -23,7 +23,7 @@ you need to use a gateway.
 <br>
 
 - UAC starts the call 
-- UAS anyone answering a call is a UAS (phone or server)
+- Anyone answering a call is a UAS (phone or server)
 
 - **IVR** = interactive voice responsive (UAS : server)
 
@@ -248,7 +248,7 @@ There are two types of SIP Proxy :
 
 <br> <br>
 
-## SESSION DESCRIPTION PROTOCOL (*SDP*)
+## SESSION DESCRIPTION PROTOCOL (*SDP*) :
 – It's defined on the RFC4566, it's a parameter negotiation for session protocol. SDP exchange capabilities and media contact addresses between 2 peers on the communication. 
 
 - There are 2 types of negotiation : 
@@ -267,7 +267,7 @@ There are two types of SIP Proxy :
 
 <br> <br>
 
-## REAL-TIME PROTOCOL (*RTP*):
+## REAL-TIME PROTOCOL (*RTP*) :
 - RTP is defined in RFC3550 and it is responsible for the media packetization. The main features of RTP the payload identification, delivering monitoring, and timestamping.
 > N.B: if you receive a packet with a sequence number out of sequence there's nothing you can do to use it. You only have to discard the packet.
 
@@ -334,7 +334,7 @@ There are two types of SIP Proxy :
 
 <br><br>
 
-## TROUBLESHOOTING SIP
+## TROUBLESHOOTING SIP :
 -  **Structured Troubleshooting Process** : 
 > 1. the first thing to do is to reproduce the problem and collect traces and log files
 > 2. then we should analyze the files and propose a resolution hypothesis
@@ -385,5 +385,16 @@ There are two types of SIP Proxy :
 - **483 - Too Many Hops** : it means that the domain isn't set, or it isn't configured in the server.
 
 - **488 - Not Acceptable Here** : usually associated with the CODEC negotiation, or sometimes related to FAX.
+
+<br><br>
+
+## TROUBLESHOOTING AUDIO ISSUES :
+- You need to reproduce the problem, capture packets, and record the call.
+
+- The basics :
+> - 8 out of 10 problems in VoIP quality are related to the WAN or the Internet, not the LAN. 
+> - Wireshark can tell you the true.
+> - Hearing you can feel if the problem is about : packet loss, jitter, or latency. 
+>> N.B : echo is generate in the oposite side of who is hearing the echo.
 
 <br><br>
