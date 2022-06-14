@@ -409,3 +409,14 @@ There are two types of SIP Proxy :
 - **Difference in the duration of the CDRs** : there are three differences in timing : session disconnection delay, time synchronism delays and rounding, and hanged calls. <br> Session disconnection delay : *when the client/server calculates the duration by the end of the transaction and the server/client calculates it by the request*. <br> Time synchronism issues : *because the client clock and the server clock are not synchronized (about milliseconds), and the billing system detects the modified seconds*. *This may be a problem if the duration is too short and only the client/server changes seconds*.
 
 <br><br>
+
+## REDUNDANCY AND LOAD BALANCE BASED ON DNS :
+- The problems : *which server is responsible for the domain*, *which transport, address, and port to use*, and *which server to use first*. 
+
+- The solution defined in the RFC is to use DNS to discover : transport, IP, port, servers, and the order.
+
+- *NAPTR* - Name Authority Pointer : is one type of record for a domain, and it's responsible to determine the transport. Many DNS servers don't support it, and if it isn't found, the phones will try SVR records for all transport.
+
+- To discover IP and Port you need to locate the server indicated by an SRV record. The mapping includes service and transport.
+
+<br><br>
