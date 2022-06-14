@@ -429,18 +429,18 @@ There are two types of SIP Proxy :
 > 2. **ACK**  : is used to confirm the end of a session.
 > 3. **BYE** : is used to disconnect an established session. You shouldn't use it in a pending request. 
 > 4. **CANCEL** : is used to disconnect a pending request. INVITE and CANCEL transactions must be processed separately.
-> 5. **REGISTER** : insert the address of record present in the contact header in the location table. There's a negotiation between UAC and Registrar server to determine expiration time.
-> 6. **OPTIONS** : check the capabilities on a User Agent, many times is used as "SIP ping".
+> 5. **REGISTER** : insert the address of the record present in the contact header in the location table. There's a negotiation between UAC and Registrar server to determine expiration time.
+> 6. **OPTIONS** : check the capabilities of a User Agent, many times are used as "SIP ping".
 
 - Other methods are : 
 > 1. MESSAGE : *is used to send instant messages, it's defined in the RFC*.
 > 2. INFO : *is used to send in-dialog information, it's defined in the RFC, and it can be used to pass DTMF*.
 > 3. PRACK : *is defined in the RFC, it's such as ACK for provisionals response*.
-> 4. REFER : *is used for Call Tranfer, and it's defined in the RFC*. 
-> 5. UPDATE : *is used to change the session before estrablishment*, is used on SIP session timers.
+> 4. REFER : *is used for Call Transfer, and it's defined in the RFC*. 
+> 5. UPDATE : *is used to change the session before establishment, and is used on SIP session timers*.
 > 6. NOTIFY : *is used to warn regarding ant event*.
-> 7. SUBSCRIBE : *is used to subscribe to an specific event, it contains the field expires for the duration of the subscription*. 
-> 8.  PUBLISH : *is used for systems with centralized presence*. *The UAC rather than notify the subscribers directly, it publish the information in the Presence Server*. *The Presence Server then send the notifies*.
+> 7. SUBSCRIBE : *is used to subscribe to a specific event, it contains the field that expires for the duration of the subscription*. 
+> 8.  PUBLISH : *is used for systems with a centralized presence*. *The UAC rather than notify the subscribers directly, publish the information in the Presence Server*. *The Presence Server then senda the notifies*.
 
 <br>
 
@@ -448,4 +448,3 @@ There are two types of SIP Proxy :
 <img width="691" alt="Schermata 2022-06-14 alle 11 54 57 AM" src="https://user-images.githubusercontent.com/107180975/173550224-1e867e0b-3899-4f20-90bd-f0575d030fb1.png">
 
 <END OF COURSE>
- 
