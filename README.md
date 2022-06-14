@@ -443,3 +443,9 @@ There are two types of SIP Proxy :
 > 8.  PUBLISH : *is used for systems with centralized presence*. *The UAC rather than notify the subscribers directly, it publish the information in the Presence Server*. *The Presence Server then send the notifies*.
 
 <br>
+
+### SIP ERROR MESSAGES : \*\*\*
+<img width="691" alt="Schermata 2022-06-14 alle 11 54 57 AM" src="https://user-images.githubusercontent.com/107180975/173550224-1e867e0b-3899-4f20-90bd-f0575d030fb1.png">
+
+<END OF COURSE>
+ 
