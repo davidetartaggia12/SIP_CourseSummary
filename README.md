@@ -398,3 +398,14 @@ There are two types of SIP Proxy :
 >> N.B : echo is generate in the oposite side of who is hearing the echo.
 
 <br><br>
+
+## TROUBLESHOOTING BILLING ISSUES : 
+- There are two main types of billing issues : 
+> 1. Difference in the number of CDRs : *caused by network issues or server issues*. 
+> 2. Difference in the duration of the CDRs : *because of hanged calls, clock difference, or session disconnection delay*.
+
+- **Difference in the number of CDRs** : usually you have more CDRs on your vendor than on your client. This is because sometimes your *network can stop*. The only way to fix this problem is to change the network, you need to have a more resilient network. Another cause is an *overwhelmed proxy*, so you start losing replies.
+
+- **Difference in the duration of the CDRs** : there are three differences in timing : session disconnection delay, time synchronism delays and rounding, and hanged calls. <br> Session disconnection delay : *when the client/server calculates the duration by the end of the transaction and the server/client calculates it by the request*. <br> Time synchronism issues : *because the client clock and the server clock are not synchronized (about milliseconds), and the billing system detects the modified seconds*. *This may be a problem if the duration is too short and only the client/server changes seconds*.
+
+<br><br>
