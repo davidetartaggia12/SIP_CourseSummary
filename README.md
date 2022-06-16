@@ -444,7 +444,8 @@ There are two types of SIP Proxy :
 
 <br>
 
-### SIP ERROR MESSAGES : \*\*\*
+### SIP ERROR MESSAGES : \*\*\* 
+ ### <a id="come-back"></a>
 <img width="691" alt="Schermata 2022-06-14 alle 11 54 57 AM" src="https://user-images.githubusercontent.com/107180975/173550224-1e867e0b-3899-4f20-90bd-f0575d030fb1.png">
  
 > [For the complete list of errors, click here!](Risorse/listaErrori.md)
