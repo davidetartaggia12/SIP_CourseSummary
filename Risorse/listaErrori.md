@@ -73,4 +73,4 @@
 | 604  | Does Not Exist Anywhere          | The called party no longer exists.                                                                                    | Rarely seen                                                                                                                                                                                                                                                                                                                   |
 | 606  | Not Acceptable                   | The terminal device of the called party rejects the SIP request as invalid.                                           | Rarely seen                                                                                                                                                                                                                                                                                                                   |
 
-[To come back to the Course Summary, click here!](../README.md/##sip-error-messages)
+[To come back to the Course Summary, click here!](../README.md#sip-error-messages)
