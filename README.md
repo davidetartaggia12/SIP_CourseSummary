@@ -325,7 +325,7 @@ There are two types of SIP Proxy :
 
 <br>
 
-## NAT CONCLUSION :
+### NAT CONCLUSION :
 - The best solutions : 
 > 1. for Servers : *manual configuration*
 > 2. for Asterisk and FreeSwitch : *Symmetric Response Routing and COMEDIA*
